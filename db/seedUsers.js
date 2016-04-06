@@ -1,9 +1,9 @@
 'use strict';
 const EventEmitter = require('events').EventEmitter;
 const Faker = require('faker');
-const knex = require('./knex');
+const dt = require('./tables');
 const bcrypt = require('bcrypt');
-const Users = () => knex('users');
+
 
 const seedUsers = (num) =>{
   const e = new EventEmitter();
@@ -22,7 +22,7 @@ const seedUsers = (num) =>{
       })
     }
     return (
-      Users()
+      dt.Users()
         .insert(fakeUsers)
         .then(function(){
           e.emit('end', num);
