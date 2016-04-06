@@ -1,9 +1,10 @@
 'use strict';
+const valid = require('../util/valid');
 const express = require('express');
 const router = express.Router();
-const dt = require('../db/tables');
-const valid = require('../util/valid');
+const knex = require('../db/knex');
 const bcrypt = require('bcrypt');
+const dt = require('../db/tables');
 
 router.get('/', function(req, res, next) {
   dt.Users().then(function(users){

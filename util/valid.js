@@ -1,4 +1,5 @@
 'use strict';
+const knex = require('../db/knex');
 const dt = require('../db/tables');
 
 module.exports = {
