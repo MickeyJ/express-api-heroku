@@ -8,6 +8,8 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
+var cors = require('cors');
+app.use(cors());
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
