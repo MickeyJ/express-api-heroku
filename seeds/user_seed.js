@@ -1,8 +1,29 @@
-const knex = require('knex')(require('../knexfile')['production']);
+'use strict';
+const knex = require('../db/knex');
+const Faker = require('faker');
+const bcrypt = require('bcrypt');
 
+  let fakeUsers = [];
 exports.seed = function(knex, Promise) {
-  return Promise.join(
-    knex('users').del(),
-    knex('users').insert({})
-  );
+
+
+    for (var i = 1; i <= 40; i++) {
+      const name = Faker.name.firstName();
+      const email = Faker.internet.email();
+      let password = bcrypt.hashSync(Faker.internet.password(), 10);
+      fakeUsers.push({
+        name,
+        email,
+        password
+      })
+    }
+    return (
+      knex('users')
+        .insert(fakeUsers)
+        .then(function(){
+          process.exit(0);
+        })
+    )
 };
+
+

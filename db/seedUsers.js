@@ -21,7 +21,7 @@ const seedUsers = (num, Promise) =>{
         password
       })
     }
-    return Promise.join(
+    return (
       Users()
         .insert(fakeUsers)
         .then(function(){
