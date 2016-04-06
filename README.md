@@ -48,7 +48,10 @@ this will not work yet.
 ...migrate to heroku.
 ```bash
 $ heroku run knex migrate:latest
+
 $ heroku run node db/seedUsers.js
+    - or -
+$ heroku run knex seed:run 
 
 $ heroku open
 ```

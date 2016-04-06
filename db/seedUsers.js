@@ -5,7 +5,7 @@ const knex = require('./knex');
 const bcrypt = require('bcrypt');
 const Users = () => knex('users');
 
-const seedUsers = (num, Promise) =>{
+const seedUsers = (num) =>{
   const e = new EventEmitter();
   let fakeUsers = [];
   process.nextTick(() => {

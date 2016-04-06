@@ -1,12 +1,9 @@
 'use strict';
-const knex = require('../db/knex');
 const Faker = require('faker');
 const bcrypt = require('bcrypt');
 
-  let fakeUsers = [];
+let fakeUsers = [];
 exports.seed = function(knex, Promise) {
-
-
     for (var i = 1; i <= 40; i++) {
       const name = Faker.name.firstName();
       const email = Faker.internet.email();
@@ -18,9 +15,7 @@ exports.seed = function(knex, Promise) {
       })
     }
     return Promise.join (
-      
       knex('users').del(),
-      
       knex('users')
         .insert(fakeUsers)
         .then(function(){
