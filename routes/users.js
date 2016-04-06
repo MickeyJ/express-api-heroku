@@ -12,17 +12,5 @@ router.get('/', function(req, res, next) {
   });
 });
 
-// router.post('/signup', valid.Signup, (req, res, next) =>{
-//   let salt = bcrypt.genSaltSync(10);
-//   let hash = bcrypt.hashSync(req.body.password, salt);
-//   Users()
-//     .insert({
-//       name: req.body.name,
-//       email: req.body.email,
-//       password: hash
-//     })
-//     .then(() => {})
-//     .catch(err =>{ next(new Error(err)) });
-// });
 
 module.exports = router;
