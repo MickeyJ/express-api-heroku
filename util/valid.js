@@ -16,7 +16,7 @@ module.exports = {
           if (!user){
             next()
           } else {
-            res.send('This Email Already Exists')
+            res.json('This Email Already Exists')
           }
         });
     }
