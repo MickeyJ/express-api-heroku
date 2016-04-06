@@ -1,5 +1,4 @@
 require('dotenv').load();
-// process.env.DATABASE_URL ;
 
 module.exports = {
   production: {

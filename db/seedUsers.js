@@ -1,11 +1,11 @@
 'use strict';
 const EventEmitter = require('events').EventEmitter;
 const Faker = require('faker');
-const knex = require('knex')(require('../knexfile')['development']);
+const knex = require('./knex');
 const bcrypt = require('bcrypt');
 const Users = () => knex('users');
 
-const seedUsers = (num) =>{
+const seedUsers = (num, Promise) =>{
   const e = new EventEmitter();
   let fakeUsers = [];
   process.nextTick(() => {
@@ -21,10 +21,14 @@ const seedUsers = (num) =>{
         password
       })
     }
-    return Users().insert(fakeUsers).then(function(){
-      e.emit('end', num);
-      process.exit(0);
-    });
+    return Promise.join(
+      Users()
+        .insert(fakeUsers)
+        .then(function(){
+          e.emit('end', num);
+          process.exit(0);
+        })
+    )
   });
   return e
 };
