@@ -17,7 +17,10 @@ exports.seed = function(knex, Promise) {
         password
       })
     }
-    return (
+    return Promise.join (
+      
+      knex('users').del(),
+      
       knex('users')
         .insert(fakeUsers)
         .then(function(){
