@@ -9,7 +9,7 @@ $ knex init
   
 ```
 
-######replace knexfile contents with this
+#####replace knexfile contents with this
 ```js
   
 require('dotenv').load();
@@ -35,8 +35,8 @@ $ knex migrate:latest --env production
   
 ```
 
-######you can either refresh users (20 by default)
-######or add more users (10 by default)
+#####you can either refresh users (20 by default)
+#####or add more users (10 by default)
 ```bash
   
 $ npm run fresh-seed-local
@@ -47,7 +47,7 @@ $ npm run more-seed-local
   
 ```
 
-######try testing in the browser at :3000
+#####try testing in the browser at :3000
 ```bash
   
 $ nodemon
@@ -55,7 +55,7 @@ $ nodemon
 ```
 
 
-######if that works, setup heroku/postgres addon and push it
+#####if that works, setup heroku/postgres addon and push it
 ```bash
   
 $ heroku create
@@ -70,14 +70,14 @@ $ git push heroku master
 * __In order to run the commands below,__ 
 __your code must be on heroku__
 
-######...Migrate errthang knex to heroku.
+#####...Migrate errthang knex to heroku.
 ```bash
   
 $ heroku run knex migrate:latest
   
 ```
 
-######Again, you can either refresh or add users
+#####Again, you can either refresh or add users
 ```bash
   
 $ npm run fresh-seed-heroku 
@@ -88,7 +88,7 @@ $ npm run more-seed-heroku
   
 ```
 
-######If the force is with you this will work
+#####If the force is with you this will work
 ```bash
   
 $ heroku open
