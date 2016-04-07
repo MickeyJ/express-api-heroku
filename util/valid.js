@@ -8,7 +8,7 @@ module.exports = {
         email = req.body.email,
         pass  = req.body.password;
     if(!pass || !email || !name){
-      res.send('No Input Provided')
+      res.json('No Input Provided')
     } else {
       dt.Users()
         .where({email: email}).first()

@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/signup', valid.Signup, (req, res, next) =>{
+router.post('/signup', (req, res, next) =>{
   let salt = bcrypt.genSaltSync(10);
   let hash = bcrypt.hashSync('123', salt);
   dt.Users()
@@ -20,7 +20,9 @@ router.post('/signup', valid.Signup, (req, res, next) =>{
       email: 'bob@gmail.com',
       password: hash
     })
-    .then(() => {})
+    .then(() => {
+      res.end()
+    })
     .catch(err =>{ next(new Error(err)) });
 });
 
