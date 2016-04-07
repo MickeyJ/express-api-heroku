@@ -20,7 +20,8 @@ router.post('/signup', (req, res, next) =>{
       email: 'bob@gmail.com',
       password: hash
     })
-    .then(() => {
+    .then((data) => {
+      res.json(data);
       res.end()
     })
     .catch(err =>{ next(new Error(err)) });

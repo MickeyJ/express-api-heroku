@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 let fakeUsers = [];
 exports.seed = function(knex, Promise) {
-    for (var i = 1; i <= 40; i++) {
+    for (var i = 1; i <= 20; i++) {
       const name = Faker.name.firstName();
       const email = Faker.internet.email();
       let password = bcrypt.hashSync(Faker.internet.password(), 10);

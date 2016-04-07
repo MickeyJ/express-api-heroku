@@ -3,7 +3,11 @@
   "version": "0.0.0",
   "main": "bin/www",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "fresh-seed-local": "knex seed:run  --env production",
+    "more-seed-local": "node db/seedUsers.js",
+    "fresh-seed-heroku": "heroku run knex seed:run",
+    "more-seed-heroku": "heroku run node db/seedUsers.js"
   },
   "dependencies": {
     "bcrypt": "^0.8.5",

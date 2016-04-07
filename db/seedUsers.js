@@ -33,7 +33,7 @@ const seedUsers = (num) =>{
   return e
 };
 
-let seed = seedUsers(20);
+let seed = seedUsers(10);
 
 seed.on('start',() =>{
   console.log('starting');

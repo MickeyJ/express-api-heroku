@@ -27,29 +27,41 @@ module.exports = {
 then...
 ```bash
 $ knex migrate:latest --env production
+```
 
-$ node db/seedUsers.js
+you can either refresh your seeded users
+or add more user
+```bash
+$ npm run fresh-seed-local
+$ npm run more-seed-local
+```
 
+try testing in the browser at :3000
+```bash
 $ nodemon
 ```
-is it working in the browser?
 
-...then setup heroku and push it
+
+if that works, setup heroku and push it up
 ```bash
 $ heroku create
 $ heroku addons:create heroku-postgresql:hobby-dev
 
 $ git add -A
-$ git commit -m"ready for heroku"
+$ git commit -m "pushing to heroku"
 $ git push heroku master
 ```
 this will not work yet.
 
-...migrate to heroku.
+...migrate errthang to heroku.
 ```bash
 $ heroku run knex migrate:latest
+```
 
-$ heroku run node db/seedUsers.js
+again you can either do a fresh user seed
+or add more users
+```bash
+$ npm
     - or -
 $ heroku run knex seed:run 
 
