@@ -1,14 +1,17 @@
-
+##Express Server - Knex/PG 
 ```bash
+  
 $ npm install
 
 $ createdb heroku-api
 
 $ knex init
+  
 ```
 
-replace knexfile with this
+######replace knexfile contents with this
 ```js
+  
 require('dotenv').load();
 
 module.exports = {
@@ -22,49 +25,72 @@ module.exports = {
     }
   }
 };
+  
 ```
 
-then...
+__then...__
 ```bash
+  
 $ knex migrate:latest --env production
+  
 ```
 
-you can either refresh your seeded users
-or add more user
+######you can either refresh users (20 by default)
+######or add more users (10 by default)
 ```bash
+  
 $ npm run fresh-seed-local
+  
+    - or -
+  
 $ npm run more-seed-local
+  
 ```
 
-try testing in the browser at :3000
+######try testing in the browser at :3000
 ```bash
+  
 $ nodemon
+  
 ```
 
 
-if that works, setup heroku and push it up
+######if that works, setup heroku/postgres addon and push it
 ```bash
+  
 $ heroku create
 $ heroku addons:create heroku-postgresql:hobby-dev
 
 $ git add -A
 $ git commit -m "pushing to heroku"
 $ git push heroku master
+  
 ```
-this will not work yet.
+* __This will not work yet.__ 
+* __In order to run the commands below,__ 
+__your code must be on heroku__
 
-...migrate errthang to heroku.
+######...Migrate errthang knex to heroku.
 ```bash
+  
 $ heroku run knex migrate:latest
+  
 ```
 
-again you can either do a fresh user seed
-or add more users
+######Again, you can either refresh or add users
 ```bash
-$ npm
+  
+$ npm run fresh-seed-heroku 
+  
     - or -
-$ heroku run knex seed:run 
-
-$ heroku open
+  
+$ npm run more-seed-heroku  
+  
 ```
-you might get an error from the last command but it should work.
+
+######If the force is with you this will work
+```bash
+  
+$ heroku open
+  
+```
