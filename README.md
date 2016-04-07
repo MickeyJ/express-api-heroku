@@ -1,4 +1,5 @@
 ##Express Server - Knex/PG 
+Just a server and database - thats it.
 ```bash
   
 $ npm install
